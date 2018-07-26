@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace ="com.qs.mybatis.po">
+
+    <select id="queryUser" resultType="User">
+        select * from task1
+    </select>
+
+    <select id="findUserById" parameterType="int" resultType="User">
+        select * from task1 where id=#{id}
+    </select>
+
+    <insert id="addUser" parameterType="User">
+        insert into task1(name,QQ,Classes,birthday,email,phone,joinSwear) values
+        (#{name},#{QQ},#{Classes},#{birthday},#{email},#{phone},#{joinSwear})
+    </insert>
+
+    <delete id="deleteUser" parameterType="User">
+        delete from task1 where id = #{id}
+    </delete>
+
+    <update id="updateUser" parameterType="User">
+        update task1 set name=#{name} where id=#{id}
+    </update>
+
+</mapper>
